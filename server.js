@@ -9,7 +9,7 @@ const server = async () => {
     dotenv.config({ path: './confing.env' });
     await dbConnect();
 
-    app.listen(process.env.PORT || 8080, () => console.log('start listnig'));
+    app.listen(3000, () => console.log('start listnig'));
   } catch (err) {
     console.log(err);
   }
