@@ -3,9 +3,8 @@ const Message = require('../model/messageModel');
 exports.getMessages = async (req, res, next) => {
   try {
     const messages = await Message.find({
-      sender: req.params.id,
-      reciver: req.params.id,
-    });
+      $or: [{ sender: req.params.id }, { reciver: req.params.id }],
+    }).sort('-date');
 
     res.status(200).json({
       status: 'success',
@@ -31,7 +30,7 @@ exports.createMessage = async (req, res, next) => {
 
 exports.deleteMessage = async (req, res, next) => {
   try {
-    await Message.deleteOne(req.params);
+    await Message.findByIdAndDelete(req.params.id);
 
     res.status(204).json({
       status: 'success',

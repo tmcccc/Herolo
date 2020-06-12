@@ -15,9 +15,13 @@ const messageSchema = new mongoose.Schema({
   },
   subject: {
     type: String,
-    maxlength: [60, 'subject cant exceed 60 chars'],
+    maxlength: [40, 'subject cant exceed 60 chars'],
+    required: [true, 'message must have a subject'],
   },
-  message: String,
+  message: {
+    type: String,
+    maxlength: [150, 'message cant exceed 150 chars'],
+  },
   date: {
     type: Date,
     default: Date.now,

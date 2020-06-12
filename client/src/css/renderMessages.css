@@ -1,0 +1,20 @@
+.tabcontent {
+  padding: 2.6rem;
+  border: 1px solid #ccc;
+}
+
+.body {
+  margin: 1.5rem;
+  max-width: 45rem;
+  word-wrap: break-word;
+}
+
+.sig {
+  text-align: right;
+  padding-right: 10rem;
+}
+
+.btn {
+  background-color: red;
+  float: right;
+}

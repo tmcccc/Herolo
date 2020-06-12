@@ -6,8 +6,10 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const errorMiddelware = require('./controller/errorController');
 const AppError = require('./utils/appErr');
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 
 app.use(express.json({ limit: '100kb' }));
 
