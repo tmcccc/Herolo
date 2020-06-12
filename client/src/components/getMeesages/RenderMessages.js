@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../../css/renderMessages.css';
 import deleteMessage from './../../api/delete';
 import { deleteCMessage } from '../../actions/message';
