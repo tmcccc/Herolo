@@ -27,6 +27,16 @@ app.use('/api', limiter);
 
 app.use('/api/v1/messages', messageRouter);
 
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
+
 app.all('*', (req, res, next) => {
   const err = new AppError(`this ${req.originalUrl} does not exist`, 404);
   next(err);
